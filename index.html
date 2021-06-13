@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Strabismus Detector V2.0</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="libs/css/site.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+<header></header>
+
+<main>
+    <div class="loader"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 d-flex align-items-center justify-content-center" style="height: 100vh;">
+                <div>
+                    <input type="file" id="fileInput" class="mb-3">
+                    <br>
+                    <button type="button" id="pupilButton" class="btn btn-primary mb-3">Pupil Detection</button>
+                    <br>
+                    <button type="button" id="lightButton" class="btn btn-danger mb-3">Light Detection</button>
+                    <br>
+                    <button type="button" id="convexHull" class="btn btn-info mb-3">Canvas Detection (Convex Hull)</button>
+                    <br>
+                    <button type="button" id="approxPollyDP" class="btn btn-success mb-3">Canvas Detection (Approx Polly DP)</button>
+                    <br>
+                    <button type="button" id="threshold" class="btn btn-dark mb-3">Thresh Hold</button>
+                    <br>
+                    <a type="button" id="downloadButton" class="btn btn-warning disabled">Download Image</a>
+                </div>
+            </div>
+
+            <div class="col-md-8 d-flex align-items-center justify-content-center">
+                <img id="imageSrc" alt="No Image" src="" class="hidden">
+                <canvas id="imageCanvas" class="hidden rounded"></canvas>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer></footer>
+
+<script src="libs/js/detect_circles.js"></script>
+<script async src="libs/js/opencv.js" onload="onOpenCvReady();"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
