@@ -31,6 +31,8 @@
                     <br>
                     <button type="button" id="lightButton" class="btn btn-outline-dark mb-3" style="width: 100%">Light Detection</button>
                     <br>
+                    <button type="button" id="circleDetect" class="btn btn-outline-dark mb-3" style="width: 100%">Circle Detection</button>
+                    <br>
                     <button type="button" id="convexHull" class="btn btn-outline-dark mb-3" style="width: 100%">Canvas Detection (Convex Hull)</button>
                     <br>
                     <button type="button" id="approxPollyDP" class="btn btn-outline-dark mb-3" style="width: 100%">Canvas Detection (Approx Polly DP)</button>
@@ -41,9 +43,14 @@
                 </div>
             </div>
 
-            <div class="col-md-8 d-flex align-items-center justify-content-center">
-                <img id="imageSrc" alt="No Image" src="" class="img-fluid hidden">
-                <canvas id="imageCanvas" class="img-fluid hidden rounded"></canvas>
+            <div class="col-md-9 d-flex align-items-center justify-content-center mb-md-5">
+                <div class="card border-0" style="height: 80%; width: 80%; top: 8%">
+                    <img id="imageSrc" alt="No Image" src="" class="card-img-top img-fluid hidden">
+                    <canvas id="imageCanvas" class="card-img-top img-fluid hidden rounded"></canvas>
+                    <div class="card-body">
+                        <button id="img-back" class="btn btn-outline-dark float-end" style="display: none;">Back</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
