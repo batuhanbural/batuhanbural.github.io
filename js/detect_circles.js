@@ -26,6 +26,11 @@ function onImageSelect() {
 imgElement.onload = onImageSelect;
 imgElement.onchange = onImageSelect;
 
+// get first image
+document.getElementById("img-back").onclick = function () {
+    onImageSelect()
+}
+
 // detecting pupil
 document.getElementById('pupilButton').onclick = function () {
     this.disabled = true;
@@ -60,6 +65,7 @@ document.getElementById('pupilButton').onclick = function () {
 
     this.disabled = false;
     document.body.classList.remove('loading');
+    document.getElementById("img-back").style.removeProperty("display");
     document.getElementById("downloadButton").classList.remove('disabled');
 };
 
@@ -98,8 +104,36 @@ document.getElementById('lightButton').onclick = function () {
 
     this.disabled = false;
     document.body.classList.remove('loading');
+    document.getElementById("img-back").style.removeProperty("display");
     document.getElementById("downloadButton").classList.remove('disabled');
 };
+
+// Detecting Circles
+document.getElementById("circleDetect").onclick = function () {
+    let src = cv.imread('imageCanvas');
+    let dst = cv.Mat.zeros(src.rows, src.cols, cv.CV_8U);
+    let circles = new cv.Mat();
+    let color = new cv.Scalar(255, 255, 0);
+    cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY, 0);
+// You can try more different parameters
+    cv.HoughCircles(src, circles, cv.HOUGH_GRADIENT,
+        1, 45, 75, 40, 50, 80);
+// draw circles
+    for (let i = 0; i < circles.cols; ++i) {
+        let x = circles.data32F[i * 3];
+        let y = circles.data32F[i * 3 + 1];
+        let radius = circles.data32F[i * 3 + 2];
+        let center = new cv.Point(x, y);
+        cv.circle(src, center, radius, color);
+    }
+    cv.imshow('imageCanvas', src);
+    src.delete();
+    dst.delete();
+    circles.delete();
+
+    document.getElementById("img-back").style.removeProperty("display");
+
+}
 
 // convex hull canvases
 document.getElementById("convexHull").onclick = function () {
