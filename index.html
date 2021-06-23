@@ -27,29 +27,29 @@
                 <div>
                     <input type="file" id="fileInput" class="btn mb-3" style="width: 100%">
                     <br>
-                    <button type="button" id="pupilButton" class="btn btn-outline-dark mb-3" style="width: 100%">Pupil
-                        Detection
-                    </button>
+                    <button type="button" id="resize_img" class="btn btn-outline-dark mb-3" style="width: 100%">Resize Image</button>
                     <br>
-                    <button type="button" id="lightButton" class="btn btn-outline-dark mb-3" style="width: 100%">Light
-                        Detection
-                    </button>
+                    <button type="button" id="gray_scale" class="btn btn-outline-dark mb-3" style="width: 100%">Gray Scale</button>
                     <br>
-                    <button type="button" id="circleDetect" class="btn btn-outline-dark mb-3" style="width: 100%">Circle
-                        Detection
-                    </button>
+                    <button type="button" id="median_blur" class="btn btn-outline-dark mb-3" style="width: 100%">Median Blur</button>
                     <br>
-                    <button type="button" id="convexHull" class="btn btn-outline-dark mb-3" style="width: 100%">Canvas
-                        Detection (Convex Hull)
-                    </button>
+                    <button type="button" id="thresh_binary_inv" class="btn btn-outline-dark mb-3" style="width: 100%">Thresh Binary Inv</button>
                     <br>
-                    <button type="button" id="approxPollyDP" class="btn btn-outline-dark mb-3" style="width: 100%">
-                        Canvas Detection (Approx Polly DP)
-                    </button>
+                    <button type="button" id="thresh_binary" class="btn btn-outline-dark mb-3" style="width: 100%">Thresh Binary</button>
                     <br>
-                    <button type="button" id="threshold" class="btn btn-outline-dark mb-3" style="width: 100%">Thresh
-                        Hold
-                    </button>
+                    <button type="button" id="thresh_binary_hard" class="btn btn-outline-dark mb-3" style="width: 100%">Thresh Binary Hard (For Light Detection)</button>
+                    <br>
+                    <button type="button" id="hough_circles" class="btn btn-outline-dark mb-3" style="width: 100%">Hough Circles</button>
+                    <br>
+                    <button type="button" id="find_pupil" class="btn btn-outline-dark mb-3" style="width: 100%">Find Pupil</button>
+                    <br>
+                    <button type="button" id="gaussian_blur" class="btn btn-outline-dark mb-3" style="width: 100%">Gaussian Blur</button>
+                    <br>
+                    <button type="button" id="erode" class="btn btn-outline-dark mb-3" style="width: 100%">Erode</button>
+                    <br>
+                    <button type="button" id="dilate" class="btn btn-outline-dark mb-3" style="width: 100%">Dilate</button>
+                    <br>
+                    <button type="button" id="find_light" class="btn btn-outline-dark mb-3" style="width: 100%">Find Light</button>
                     <br>
                     <a type="button" id="downloadButton" class="btn btn-outline-dark disabled" style="width: 100%">Download
                         Image</a>
@@ -58,7 +58,7 @@
 
             <div class="col-md-9 d-flex align-items-center justify-content-center mb-md-5">
                 <div class="card border-0" style="height: 80%; width: 80%; top: 8%">
-                    <img id="imageSrc" alt="No Image" src="" class="card-img-top img-fluid hidden">
+                    <img id="imageSrc" alt="No Image" src="" class="card-img-top img-fluid hidden" style="width: 100%;height: 100%;object-fit: cover">
                     <canvas id="imageCanvas" class="card-img-top img-fluid hidden rounded"></canvas>
                     <div class="card-body">
                         <button id="img-back" class="btn btn-outline-dark float-end" style="display: none;">Back</button>
@@ -68,17 +68,6 @@
         </div>
     </div>
 </main>
-
-<footer class="text-center bg-dark text-light p-3" style="position: relative;">
-    <p class="small m-0">
-        Find us on social media.
-    </p>
-    <a href="#" class="btn text-light p-0"><i class="fab fa-instagram fa-fw"></i></a>
-    <a href="#" class="btn text-light p-0"><i class="fab fa-linkedin fa-fw"></i></a>
-    <a href="#" class="btn text-light p-0"><i class="fab fa-twitter-square fa-fw"></i></a>
-    <a href="#" class="btn text-light p-0"><i class="fab fa-pinterest-square fa-fw"></i></a>
-    <a href="#" class="btn text-light p-0"><i class="fab fa-facebook-square fa-fw"></i></a>
-</footer>
 
 <script src="js/detect_circles.js"></script>
 <script async src="js/opencv.js" onload="onOpenCvReady();"></script>
