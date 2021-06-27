@@ -114,7 +114,7 @@ document.getElementById("find_st").onclick = function () {
     cv.imshow("editCanvas", img_resized);
 
     let distance = Math.round((((l_center.x - p_x) ** 2) + ((l_center.y - p_y) ** 2)) ** (1 / 2));
-    if (distance > 20) {
+    if (distance > 26) {
         document.getElementById("result_strabismus").classList.remove("hidden");
     } else {
         document.getElementById("result_healthy").classList.remove("hidden");
