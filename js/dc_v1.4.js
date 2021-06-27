@@ -36,13 +36,6 @@ let p_radius;
 let p_x;
 let p_y;
 
-// coords of light
-let l_center;
-let l_radius;
-let l_x;
-let l_y;
-
-
 document.getElementById("find_pupil").onclick = function () {
     let src = cv.imread("imageCanvas");
     let output = new cv.Mat();
@@ -56,7 +49,7 @@ document.getElementById("find_pupil").onclick = function () {
 
     let circles = new cv.Mat();
     cv.HoughCircles(output, circles, cv.HOUGH_GRADIENT,
-        1, 120, 30, 50, 90, 270);
+        1, 140, 30, 50, 150, 270);
 
     // draw circles
     for (let i = 0; i < circles.cols; ++i) {
@@ -107,13 +100,18 @@ document.getElementById("find_light").onclick = function () {
         let contoursColor = new cv.Scalar(255, 255, 255, 175);
         let circleColor = new cv.Scalar(221, 212, 226, 89);
 
+        console.log((p_x-p_radius < circle.center.x < p_x + p_radius) && (p_y - p_radius < circle.center.y < p_y + p_radius))
+        console.log(`Pupil x: ${p_x}
+        Pupil y: ${p_y}
+        Pupil r: ${p_radius}`)
 
+        //(p_x-p_radius < circle.center.x < p_x + p_radius) && (p_y - p_radius < circle.center.y < p_y + p_radius)
 
-        // draw contours and circle
-        cv.drawContours(dst, contours, 0, contoursColor, 1, 8, hierarchy, 100);
-        cv.circle(imgr, circle.center, circle.radius, circleColor, 4, cv.FILLED);
+        if (((p_x-p_radius < circle.center.x) && (circle.center.x < p_x + p_radius)) && ((p_y - p_radius < circle.center.y) && circle.center.y < p_y + p_radius)) {
+            cv.drawContours(dst, contours, 0, contoursColor, 1, 8, hierarchy, 100);
+            cv.circle(imgr, circle.center, circle.radius, circleColor, 4, cv.FILLED);
+        }
     }
-
     cv.imshow('editCanvas', imgr);
 }
 
