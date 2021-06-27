@@ -81,6 +81,7 @@ document.getElementById("find_light").onclick = function () {
     let anchor = new cv.Point(-1, -1);
     // You can try more different parameters
     cv.dilate(output, output, M, anchor, 4, cv.BORDER_CONSTANT, cv.morphologyDefaultBorderValue());
+    cv.dilate(output, output, M, anchor, 4, cv.BORDER_CONSTANT, cv.morphologyDefaultBorderValue());
 
     // detect light and draw contours
     let dst = cv.Mat.zeros(output.rows, output.cols, cv.CV_8UC3);
