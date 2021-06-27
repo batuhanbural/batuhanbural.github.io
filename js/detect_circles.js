@@ -115,7 +115,7 @@ document.getElementById("hough_circles").onclick = function () {
     cv.cvtColor(src, src, cv.COLOR_RGBA2GRAY, 0);
     // You can try more different parameters
     cv.HoughCircles(src, circles, cv.HOUGH_GRADIENT,
-        1, 100, 30, 50, 75, 270);
+        1, 140, 30, 50, 150, 270);
 
     // draw circles
     for (let i = 0; i < circles.cols; ++i) {
